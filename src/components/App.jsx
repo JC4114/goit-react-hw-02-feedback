@@ -12,61 +12,61 @@ class App extends Component {
     bad: 0,
   };
 
-//   onLeaveFeedback = state => {
-//     this.setState(prevState => ({
-//       [state]: prevState[state] + 1,
-//     }));
-//   };
+  onLeaveFeedback = state => {
+    this.setState(prevState => ({
+      [state]: prevState[state] + 1,
+    }));
+  };
 
-//   countTotalFeedback() {
-//     const { good, neutral, bad } = this.state;
-//     return good + neutral + bad;
-//   }
+  countTotalFeedback() {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  }
 
-//   countPositiveFeedbackPercentage() {
-//     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
-//   }
+  countPositiveFeedbackPercentage() {
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+  }
 
-//   render() {
-//     const { good, neutral, bad } = this.state;
-//     const options = Object.keys(this.state);
-//     const totalFeedback = this.countTotalFeedback();
+  render() {
+    const { good, neutral, bad } = this.state;
+    const options = Object.keys(this.state);
+    const totalFeedback = this.countTotalFeedback();
 
-//     return (
-//       <div
-//         style={{
-//           display: 'inline-flex',
-//           flexDirection: 'column',
-//           textAlign: 'center',
-//           margin: '20px',
-//           paddingLeft: '10px',
-//           paddingRight: '10px',
-//           color: '#010101',
-//           border: '2px solid black',
-//           borderRadius: '6px',
-//         }}
-//       >
-//         <Section title="Please leave your feedback">
-//           <FeedbackOptions
-//             options={options}
-//             onLeaveFeedback={this.onLeaveFeedback}
-//           />
-//         </Section>
-//         <Section title="Statistics">
-//           {totalFeedback > 0 ? (
-//             <Statistics
-//               good={good}
-//               neutral={neutral}
-//               bad={bad}
-//               total={totalFeedback}
-//               positivePercentage={this.countPositiveFeedbackPercentage()}
-//             />
-//           ) : (
-//             <Notification message="There is no feedback" />
-//           )}
-//         </Section>
-//       </div>
-//     );
-//   }
-// }
-// export default App;
+    return (
+      <div
+        style={{
+          display: 'inline-flex',
+          flexDirection: 'column',
+          textAlign: 'center',
+          margin: '20px',
+          paddingLeft: '10px',
+          paddingRight: '10px',
+          color: '#010101',
+          border: '2px solid black',
+          borderRadius: '6px',
+        }}
+      >
+        <Section title="Please leave your feedback">
+          <FeedbackOptions
+            options={options}
+            onLeaveFeedback={this.onLeaveFeedback}
+          />
+        </Section>
+        <Section title="Statistics">
+          {totalFeedback > 0 ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={totalFeedback}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          ) : (
+            <Notification message="There is no feedback" />
+          )}
+        </Section>
+      </div>
+    );
+  }
+}
+export default App;
